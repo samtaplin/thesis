@@ -1,0 +1,56 @@
+---
+title: "He's Finished Replication Data"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+```{r}
+ogdata <- read.csv("replication_data.csv")
+
+```
+```{r}
+library(survival)
+require(lme4)
+install.packages("sjPlot")
+install.packages("sjmisc")
+install.packages("sjlabelled")
+install.packages("insight")
+install.packages("parameters")
+
+```
+```{r}
+m1 <- glmer(oppchal ~ IncumbentRan + PollsBad + EconCrisis + tenure + clirent + adjexconst + reltradelog + Transitional + IOScore + leverage + v2x_polyarchy + (1 | country_x), data = ogdata, family = binomial, control = glmerControl(optimizer = "bobyqa"), nAGQ = 10)
+```
+```{r}
+library(sjPlot)
+library(ggplot2)
+plot_model(m1, type = "pred", terms = "tenure")
+```
+```{r}
+summary(m1)
+```
+```{r}
+m2 <- glmer(oppwin ~ IncumbentRan + PollsBad + EconCrisis + tenure + clirent + adjexconst + reltradelog + Transitional + IOScore + leverage + v2x_polyarchy + (1 | country_x), data = ogdata, family = binomial, control = glmerControl(optimizer = "bobyqa"), nAGQ = 10)
+```
+```{r}
+m3 <- glmer(OppBoycott ~ IncumbentRan + PollsBad + EconCrisis + tenure + clirent + adjexconst + reltradelog + Transitional + IOScore + leverage + v2x_polyarchy + (1 | country_x), data = ogdata, family = binomial, control = glmerControl(optimizer = "bobyqa"), nAGQ = 10)
+```
+
+
+
+```{r}
+library(sjmisc)
+library(sjlabelled)
+tab_model(m1, m2, m3, title = "Election Outcomes", dv.labels = c("Opposition Challenge", "Opposition Win", "Opposition Boycott"), show.ci = FALSE, pred.labels = c("(Intercept)", "Incumbent Ran", "Incumbent Polls Poorly", "Economic Crisis", "Leader Tenure", "Major Aid Recipient", "Executive Constraints", "TradeLog", "Transition", "IOScore", "International Leverage", "Electoral Democracy"))
+```
+```{r}
+plot_model(m1, axis.title = "Odds Ratio", title = "Opposition Challenge", axis.labels = c("Electoral Democracy", "International Leverage", "After Cold War", "IOScore", "Transition", "TradeLog", "Executive Constraints", "Major Aid Recipient", "Long Tenure", "Leader Tenure", "Economic Crisis", "Incumbent Polls Poorly", "Incumbent Ran"))
+```
+```{r}
+plot_model(m2, axis.title = "Odds Ratio", title = "Opposition Challenge", axis.labels = c("Electoral Democracy", "International Leverage", "After Cold War", "IOScore", "Transition", "TradeLog", "Executive Constraints", "Major Aid Recipient", "Long Tenure", "Leader Tenure", "Economic Crisis", "Incumbent Polls Poorly", "Incumbent Ran"))
+```
+```{r}
+plot_model(m3, axis.title = "Odds Ratio", title = "Opposition Challenge", axis.labels = c("Electoral Democracy", "International Leverage", "After Cold War", "IOScore", "Transition", "TradeLog", "Executive Constraints", "Major Aid Recipient", "Long Tenure", "Leader Tenure", "Economic Crisis", "Incumbent Polls Poorly", "Incumbent Ran"))
+```
+
