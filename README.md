@@ -187,11 +187,11 @@ stdata['Country'].value_counts().head(10)
 
 For elections i in countries j, I estimate that:
 
-Pr(Opposition Victory<sub>ij</sub> = 1) = f(β<sub>1</sub> Incumbent Running<sub>ij</sub> + β<sub>2</sub> Poor Government Polling Performance<sub>ij</sub> +  β<sub>3</sub> Incumbent Tenure<sub>ij</sub> + β<sub>4</sub> Government is a Major Aid Recipient<sub>ij</sub> + φX<sub>ij</sub> + Y<sub>j</sub> + ε<sub>ij</sub>) $
+Pr(Opposition Victory<sub>ij</sub> = 1) = f(β<sub>1</sub> Incumbent Running<sub>ij</sub> + β<sub>2</sub> Poor Government Polling Performance<sub>ij</sub> +  β<sub>3</sub> Incumbent Tenure<sub>ij</sub> + β<sub>4</sub> Government is a Major Aid Recipient<sub>ij</sub> + φX<sub>ij</sub> + Y<sub>j</sub> + ε<sub>ij</sub>)
 
-Pr(Opposition Challenge<sub>ij</sub> = 1) = f(β<sub>1</sub> Incumbent Running<sub>ij</sub> + β<sub>2</sub> Poor Government Polling Performance<sub>ij</sub> +  β<sub>3</sub> Incumbent Tenure<sub>ij</sub> + β<sub>4</sub> Government is a Major Aid Recipient<sub>ij</sub> + φX<sub>ij</sub> + Y<sub>j</sub> + ε<sub>ij</sub>) $
+Pr(Opposition Challenge<sub>ij</sub> = 1) = f(β<sub>1</sub> Incumbent Running<sub>ij</sub> + β<sub>2</sub> Poor Government Polling Performance<sub>ij</sub> +  β<sub>3</sub> Incumbent Tenure<sub>ij</sub> + β<sub>4</sub> Government is a Major Aid Recipient<sub>ij</sub> + φX<sub>ij</sub> + Y<sub>j</sub> + ε<sub>ij</sub>)
 
-Pr(Opposition Boycott<sub>ij</sub> = 1) = f(β<sub>1</sub> Incumbent Running<sub>ij</sub> + β<sub>2</sub> Poor Government Polling Performance<sub>ij</sub> +  β<sub>3</sub> Incumbent Tenure<sub>ij</sub> + β<sub>4</sub> Government is a Major Aid Recipient<sub>ij</sub> + φX<sub>ij</sub> + Y<sub>j</sub> + ε<sub>ij</sub>) $
+Pr(Opposition Boycott<sub>ij</sub> = 1) = f(β<sub>1</sub> Incumbent Running<sub>ij</sub> + β<sub>2</sub> Poor Government Polling Performance<sub>ij</sub> +  β<sub>3</sub> Incumbent Tenure<sub>ij</sub> + β<sub>4</sub> Government is a Major Aid Recipient<sub>ij</sub> + φX<sub>ij</sub> + Y<sub>j</sub> + ε<sub>ij</sub>)
 
 X<sub>ij</sub> is a vector of control variables, including the level of constraints on executive power, trade linkages with major democracies, membership in liberal international organizations and economic performance in the lead-up to the election. Y<sub>j</sub>is a random normally-distributed variable with mean ζ<sub>j</sub> and standard-deviation σ<sub>j</sub> that models country-specific effects. ε<sub>ij</sub>represents the random error. My model assumes there is a random effect, conditional on the country where the election occurs, that accounts for some of the unmeasured or confounding differences between states.
 
